@@ -1,3 +1,9 @@
+#######################################################################################
+## Simple implementation of bubble sort algorithm. Here the program is capable of    ##
+## generating the array automatically using random number generation machanism.      ##
+## It includes the function to display the generated array                           ##
+#######################################################################################
+
 import random
 
 class BubbleSort(object):
