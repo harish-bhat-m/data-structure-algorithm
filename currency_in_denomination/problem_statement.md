@@ -34,6 +34,8 @@ Denomination of 5 in  16 number
 ------------------------------------
 
 Denomination of 2 in  40 number
+
 ------------------------------------
+
 Denomination of 1 in  80 number
 
