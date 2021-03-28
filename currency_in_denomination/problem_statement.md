@@ -3,7 +3,7 @@
    Write a program  to display the different combination of currencies with the number for given amount of rupees
 
 
-## Example
+## Example:
    For the given input of 80 ruppers, you need to get all the possible combination from the currency notes denomication
    50, 20, 10, 5, 2, 1
    
