@@ -1,4 +1,4 @@
-#Problem Statement: 
+#  Problem Statement: 
    You have given the currency notes/coins of denomination 2000, 500, 100, 50, 20, 10, 5, 2, 1
    Write a program  to display the different combination of currencies with the number for given amount of rupees
 
