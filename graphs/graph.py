@@ -4,10 +4,6 @@ class AdjNode:
     """
 
     def __init__(self, data):
-        """
-        Constructor
-        :param data : the next node.
-        """
         self.node = data
         self.next = None
 
@@ -18,22 +14,12 @@ class Graph:
     """
 
     def __init__(self, vertices):
-        """
-        Constructor
-        :param nodes : Total nodes in a graph
-        """
         self.nodes = vertices
         self.graph = [None] * self.nodes
 
         # Function to add an edge in an undirected graph
 
     def add_edge(self, source, destination):
-        """
-        add edge
-        :param source: Source node
-        :param destination: Destination node
-        """
-
         # Adding the node to the source node
         node = AdjNode(destination)
         node.next = self.graph[source]
@@ -62,7 +48,6 @@ if __name__ == "__main__":
     g.add_edge(1, 2)
     g.add_edge(1, 3)
     g.add_edge(1, 4)
-    g.add_edge(2, 3)
-    g.add_edge(3, 4)
+  
 
     g.print_graph()
