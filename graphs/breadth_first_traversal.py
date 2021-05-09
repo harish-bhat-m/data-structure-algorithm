@@ -29,8 +29,11 @@ class BFT():
         while queue:
             source = queue.pop(0)
             result = str(source)
+            
+            print(result)
 
             while self.graph.graph[source] is not None:
+                print("sadasdasd")
                 data = self.graph.graph[source].node
                 if not visited[data]:
                     queue.append(data)
@@ -39,18 +42,19 @@ class BFT():
         return result
 
 g = Graph(5)
-g.add_edge(0, 1)
-g.add_edge(0, 4)
 g.add_edge(1, 2)
 g.add_edge(1, 3)
-g.add_edge(1, 4)
 g.add_edge(2, 3)
+g.add_edge(2, 1)
+g.add_edge(3, 1)
+g.add_edge(3, 2)
 g.add_edge(3, 4)
+g.add_edge(4,3)
 g.print_graph()
 
 bft = BFT(g,0)
 traversed_string = bft.traversal()
 print("Traversal")
-print(traversalString)
+print(traversed_string)
 
 
