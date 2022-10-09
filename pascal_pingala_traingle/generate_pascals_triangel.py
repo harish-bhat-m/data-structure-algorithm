@@ -5,16 +5,20 @@ class Pascal():
         self.row = [1]
         self.static_list = [0]
         self.level = 0
+        self.CONSTANT_SPACE = 6
 
     def get_level(self):
         """ Input from the user """
-        self.level = int(input("Enter the triagle level:"))
+        try:
+            self.level = int(input("Enter the triagle level:"))
+        except ValueError:
+            print("Error Case: Input must be integer")
 
     def generate_pascal_traingle(self):
         """ traingle generation logic"""
         for _ in range(self.level):
             row_string = " ".join(str(element) for element in self.row)
-            print("{:^{width}}".format(row_string, width=self.level*6))
+            print("{:^{width}}".format(row_string, width=self.level * self.CONSTANT_SPACE))
             self.row = [left+right for left,right in \
                         zip(self.row+self.static_list, self.static_list+self.row)]
 
@@ -22,3 +26,6 @@ if __name__ == "__main__":
     pascal_obj =Pascal()
     pascal_obj.get_level()
     pascal_obj.generate_pascal_traingle()
+
+
+
