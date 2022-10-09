@@ -8,7 +8,7 @@ class Pascal():
 
     def get_level(self):
         """ Input from the user """
-        self.level = int(input("Enter the trianle level:"))
+        self.level = int(input("Enter the triagle level:"))
 
     def generate_pascal_traingle(self):
         """ traingle generation logic"""
