@@ -61,12 +61,12 @@ class Queue(object):
         if self.isFull():
             raise Exception("Queue is full")
         elif self.head == -1:
-            self.queue[self.tail] = element
             self.head = self.tail = 0
-            print("Added {} to the queue".format(element))
-        else:
             self.queue[self.tail] = element
+            print("1Added {} to the queue".format(element))
+        else:
             self.tail += 1
+            self.queue[self.tail] = element
             print("Added {} to the queue".format(element))
     
     def dequeue(self):
@@ -82,3 +82,47 @@ class Queue(object):
             element = self.queue[self.head]
             self.head = self.tail = -1
             return element
+        else:
+            element = self.queue[self.head]
+            self.head += 1
+            return element
+    
+    def peek(self):
+        '''
+        Get the top element of the queue without removing it
+        : returns : top most element from the queue
+        : rtype: object
+        : raises Exception if the queue is empty
+        '''
+        if self.isEmpty():
+            raise Exception("Queue is empty")
+        else:
+            return self.queue[self.head]
+
+    def display(self):
+        '''
+        Display all the elements from the queue
+        :returns : list of objects.
+        :rtype: None
+        :raises Exception if the queue is empty.
+        '''
+        if self.isEmpty():
+            raise Exception("Queue is empty")
+        else:
+            #print(self.queue)
+            print("\n", end="|")
+            for element in range(self.head, self.tail + 1):
+                print("{}".format(self.queue[element]), end="|")
+            print("\n")
+
+
+if __name__ == "__main__":
+    q = Queue(5)
+    q.enqueue("A")
+    q.enqueue("B")
+    q.enqueue("C")
+    q.enqueue("D")
+    q.display()
+    q.dequeue()
+    q.display()
+    print(q.peek())
