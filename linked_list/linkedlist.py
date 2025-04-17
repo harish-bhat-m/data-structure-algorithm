@@ -58,6 +58,40 @@ class LinkedList(object):
             print(current_node.get_data())
             current_node = current_node.get_next()
 
+    def remove(self, element = None):
+        """
+            Removes an element from the linked list.
+            :param:
+                element: Value to be removed from the linked list.
+            :returns: None.
+            :rtype: None.
+            :exception: Raises the assertion error if the element is not passed to method, 
+        """
+        try:
+            assert (element is not None)
+            current_node = self.head
+            previous_node = None
+            while current_node is not None:
+                if current_node.get_data() == element:
+                    break
+                previous_node = current_node
+                current_node = current_node.get_next()
+
+            if current_node is None:
+                print("Element '{}' not found in the linked list.".format(element))
+            elif previous_node is None:
+                self.head = current_node.get_next()
+                self.count -= 1
+                print("Element '{}' removed from the linked list.".format(element))
+            else:
+                previous_node.set_next(current_node.get_next())
+                self.count -= 1
+                print("Element '{}' removed from the linked list.".format(element))
+
+        except AssertionError as error:
+            print("Error Case: Element cannot be empty in 'remove' method.")
+
+
     def find(self, element = None):
         """
             Finds and prints the node data if found in the linked list
@@ -65,7 +99,7 @@ class LinkedList(object):
                 element: value of the node.
             :returns: None.
             :rtype: None.
-            :exception: None.
+            :exception: Raises the assertion error if the search element is not passed.
         """
         try:
             assert (element is not None)
@@ -83,6 +117,31 @@ class LinkedList(object):
                 print("Element '{}' not found in the linked list.".format(element))
         except AssertionError as error:
             print("Error Case: Element cannot be empty in 'find' method")
+
+        
+    def get_count(self):
+        """
+            Returns the count of the nodes in the linked list.
+            :param: None.
+            :returns: count.
+            :rtype: int.
+            :exception: None.
+        """
+        print("{} elements found in the linked list.".format(self.count))
+
+    def is_empty(self):
+        """
+            Checks the linked list is empty or not.
+            :param: None.
+            :returns: True if the linked list is empty otherwise False.
+            :rtype: bool.
+            :exception: None.
+        """
+        if self.head is None:
+            return True
+        else:
+            return False
+
             
 if __name__ == "__main__":
     ll = LinkedList()
@@ -92,5 +151,7 @@ if __name__ == "__main__":
     ll.insert(40)
     ll.insert(50)
     ll.traverse()
-    ll.find()
+    ll.remove("AB")
+    ll.traverse()
+    ll.get_count()
 
