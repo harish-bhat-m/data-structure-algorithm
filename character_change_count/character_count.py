@@ -1,6 +1,9 @@
 def count_character_change(string: str) -> int:
     """
-
+        Function to count the change in the character in the string.
+        :param string: string to count the change in the character.
+        :return: count of the change in the character.
+        :rtype: int
     """
     if string == "":
         return 0
