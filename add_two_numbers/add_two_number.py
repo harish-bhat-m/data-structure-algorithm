@@ -14,17 +14,9 @@ class ListNode(object):
         :rtype: None.
         :exception: None
         """
-        if isinstance(value, int):
-            print("Its Int")
-            self.value = value
-            self.next_node = next_node
-        elif isinstance(value, list):
-            root = self
-            for val in value:
-                self.value = val
-                self.next_node = self
-                self = self.next_node
-            self= root
+        self.value = value
+        self.next_node = next_node
+        
     def iterate(self):
         """
         Method to iterate the linked list
@@ -47,6 +39,7 @@ class Solution:
     :rtype: None
     :exception: None
     """
+
     def add_two_linked_list(self, linked_list_1: ListNode, linked_list_2:ListNode) -> ListNode:
         """
         Method to add the two linked list
@@ -59,8 +52,8 @@ class Solution:
         """
         result = ListNode()
         ptr = result
-
         carry = 0
+
         while linked_list_1 is not None or linked_list_2 is not None:
             sum = 0 + carry
 
@@ -84,26 +77,14 @@ class Solution:
         #return result.next_node              
         return result.next_node
         
-root_1 = ListNode([1,3,4])
-root_2 = ListNode(2, ListNode(5, ListNode(6)))
-root_1.iterate()
-root_2.iterate()
-"""root1 = ListNode(9,
-                 ListNode(9,
-                          ListNode(9,
-                                   ListNode(9,
-                                            ListNode(9,
-                                                     ListNode(9,
-                                                              ListNode(9)))))))
+root1 = ListNode(1, ListNode(2, ListNode(3)))
 
-root2 = ListNode(9,
-                 ListNode(9,
-                          ListNode(9,
-                                   ListNode(9))))
+root2 = ListNode(4, ListNode(5, ListNode(7)))
 
 
 sol = Solution()
 sum = sol.add_two_linked_list(root1, root2)
+
 root1.iterate()
 root2.iterate()
-sum.iterate()"""
+sum.iterate()
